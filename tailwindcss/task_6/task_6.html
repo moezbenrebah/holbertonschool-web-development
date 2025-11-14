@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailwindCss</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Notification System</h1>
+        <p class="text-lg text-gray-600">Interactive notification badges</p>
+    </div>
+
+    <div class="text-center">
+        <!-- messages button -->
+        <div class="inline-block relative m-4">
+            <button class="bg-white text-gray-700 px-6 py-3 rounded-lg border-2 border-gray-200 font-medium shadow-md hover:shadow-lg cursor-pointer">
+                <span class="text-xl mr-2">💬</span>
+                Messages
+            </button>
+            <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full z-10">5</span>
+        </div>
+
+        <!-- notifications button -->
+        <div class="inline-block relative m-4">
+            <button class="bg-white text-gray-700 px-6 py-3 rounded-lg border-2 border-gray-200 font-medium shadow-md hover:shadow-lg cursor-pointer">
+                <span class="text-xl mr-2">🔔</span>
+                Notifications
+            </button>
+            <span class="absolute -top-2 -right-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full z-10">12</span>
+        </div>
+
+        <!-- cart button -->
+        <div class="inline-block relative m-4">
+            <button class="bg-white text-gray-700 px-6 py-3 rounded-lg border-2 border-gray-200 font-medium shadow-md hover:shadow-lg cursor-pointer">
+                <span class="text-xl mr-2">🛒</span>
+                Cart
+            </button>
+            <span class="absolute -top-2 -right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full z-10">3</span>
+        </div>
+
+        <!-- inbox button -->
+        <div class="inline-block relative m-4">
+            <button class="bg-blue-600 text-white px-6 py-3 rounded-lg border-2 border-blue-600 font-medium shadow-md hover:shadow-lg hover:bg-blue-700 cursor-pointer">
+                <span class="text-xl mr-2">📧</span>
+                Inbox
+            </button>
+            <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full z-10">99+</span>
+        </div>
+    </div>
+
+    <div class="text-center mt-16">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8">Profile Cards</h2>
+
+        <!-- profile card 1 -->
+        <div class="inline-block w-64 bg-white p-6 m-4 rounded-xl border-2 border-gray-200 shadow-lg">
+            <div class="relative mb-4">
+                <div class="w-20 h-20 bg-linear-to-br from-blue-400 to-blue-600 rounded-full mx-auto"></div>
+                <span class="absolute bottom-0 right-20 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded-full border-2 border-white z-10">Online</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-1">Sarah Wilson</h3>
+            <p class="text-sm text-gray-500 mb-4">Product Designer</p>
+            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium cursor-pointer hover:bg-blue-700">
+                View Profile
+            </button>
+        </div>
+
+        <!-- profile card 2 -->
+        <div class="inline-block w-64 bg-white p-6 m-4 rounded-xl border-2 border-gray-200 shadow-lg">
+            <div class="relative mb-4">
+                <div class="w-20 h-20 bg-linear-to-br from-purple-400 to-purple-600 rounded-full mx-auto"></div>
+                <span class="absolute bottom-0 right-20 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full border-2 border-white z-10">Away</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-1">Mike Chen</h3>
+            <p class="text-sm text-gray-500 mb-4">Software Engineer</p>
+            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium cursor-pointer hover:bg-blue-700">
+                View Profile
+            </button>
+        </div>
+
+        <!-- profile card 3 -->
+        <div class="inline-block w-64 bg-white p-6 m-4 rounded-xl border-2 border-gray-200 shadow-lg">
+            <div class="relative mb-4">
+                <div class="w-20 h-20 bg-linear-to-br from-pink-400 to-pink-600 rounded-full mx-auto"></div>
+                <span class="absolute bottom-0 right-20 bg-gray-400 text-white text-xs font-bold px-2 py-1 rounded-full border-2 border-white z-10">Offline</span>
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-1">Emma Davis</h3>
+            <p class="text-sm text-gray-500 mb-4">UX Researcher</p>
+            <button class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium cursor-pointer hover:bg-blue-700">
+                View Profile
+            </button>
+        </div>
+    </div>
+</body>
+</html>
