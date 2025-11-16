@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailwindCss</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+</head>
+<body class="bg-gray-50 p-8">
+
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Footer Navigation</h1>
+        <p class="text-lg text-gray-600">Multi-column footer with navigation links</p>
+    </div>
+
+    <footer class="bg-white rounded-2xl border-2 border-gray-200 shadow-xl p-12 max-w-6xl mx-auto">
+        <div class="flex gap-20">
+            <!-- left column: logo + button + badge -->
+            <div class="flex flex-col gap-6">
+                <!-- logo section -->
+                <div class="flex items-center gap-2">
+                    <div class="text-4xl mb-2">⚡</div>
+                    <h2 class="text-2xl font-bold text-gray-900">ListenUp!</h2>
+                </div>
+
+                <!-- button -->
+                <div>
+                    <button class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg font-bold border-2 border-gray-900 shadow-md hover:bg-yellow-300 cursor-pointer">
+                        Get started for free →
+                    </button>
+                </div>
+
+                <!-- badge -->
+                <div>
+                    <div class="bg-linear-to-br from-indigo-100 to-purple-100 rounded-xl p-4 border-2 border-indigo-200 flex items-center gap-2">
+                        <span class="text-sm text-indigo-900 font-medium">🏆 Product of the day</span>
+                        <span class="text-yellow-500">⭐⭐⭐⭐⭐</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- resources column -->
+            <div class="mb-8 flex-1">
+                <h3 class="text-base font-bold text-gray-900 mb-6">Ressources</h3>
+                <div class="flex flex-col gap-3">
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4 text-sm">
+                        <span class="mr-2"><i class="fa-regular fa-gem"></i></span>
+                        <span>Design inspirations</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4 text-sm">
+                        <span class="mr-2"><i class="fa-regular fa-lightbulb"></i></span>
+                        <span>Onboarding inspirations</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4 text-sm">
+                        <span class="mr-2"><i class="fa-solid fa-wallet"></i></span>
+                        <span>Product Discovery</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm">
+                        <span class="mr-2"><i class="fa-regular fa-envelope"></i></span>
+                        <span>Newsletter</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- product column -->
+            <div class="mb-8 flex-1">
+                <h3 class="text-base font-bold text-gray-900 mb-6">Product</h3>
+                <div class="flex flex-col gap-3">
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4 text-sm">
+                        <span class="mr-2"><i class="fa-solid fa-sack-dollar"></i></span>
+                        <span>Pricing</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4 text-sm">
+                        <span class="mr-2"><i class="fa-solid fa-plug"></i></span>
+                        <span>Integrations</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm">
+                        <span class="mr-2"><i class="fa-solid fa-circle-dot"></i></span>
+                        <span>Meeting recorder</span>
+                    </a>
+                </div>
+                <div class="mt-8">
+                    <h4 class="text-sm font-bold text-gray-700 mb-4">Use cases</h4>
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm">
+                        <span class="mr-2"><i class="fa-solid fa-user-group"></i></span>
+                        <span>User interviews</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- company column -->
+            <div class="mb-8 flex-1">
+                <h3 class="text-base font-bold text-gray-900 mb-6">Company</h3>
+                <div class="flex flex-col gap-3">
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4 text-sm">
+                        <span class="mr-2"><i class="fa-brands fa-linkedin-in"></i></span>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4 text-sm">
+                        <span class="mr-2"><i class="fa-regular fa-comment-dots"></i></span>
+                        <span>Contact us</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4 text-sm">
+                        <span class="mr-2"><i class="fa-solid fa-lock"></i></span>
+                        <span>Privacy Policy</span>
+                    </a>
+                    <a href="#" class="flex items-center gap-2 text-gray-600 hover:text-gray-900 text-sm">
+                        <span class="mr-2"><i class="fa-solid fa-clipboard-list"></i></span>
+                        <span>Terms</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
