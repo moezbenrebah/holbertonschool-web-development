@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TailwindCss</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">Photo Gallery</h1>
+        <p class="text-lg text-gray-600">Explore our collection</p>
+    </div>
+
+    <!-- gallery container -->
+    <div class="grid grid-cols-3 gap-4 max-w-6xl mx-auto">
+        <!-- photo 1 -->
+        <div class="row-span-2 bg-linear-to-br from-blue-400 to-blue-600 rounded-lg shadow-lg p-8 m-2 inline-block">
+            <div class="text-white text-center">
+                <div class="text-6xl mb-4">🌄</div>
+                <p class="text-sm font-medium">Mountain Vista</p>
+            </div>
+        </div>
+
+        <!-- photo 2 -->
+        <div class="bg-linear-to-br from-purple-400 to-purple-600 rounded-lg shadow-lg p-8 m-2 inline-block">
+            <div class="text-white text-center">
+                <div class="text-6xl mb-4">🌊</div>
+                <p class="text-sm font-medium">Ocean Waves</p>
+            </div>
+        </div>
+
+        <!-- photo 3 -->
+        <div class="bg-linear-to-br from-pink-400 to-pink-600 rounded-lg shadow-lg p-8 m-2 inline-block">
+            <div class="text-white text-center">
+                <div class="text-6xl mb-4">🌸</div>
+                <p class="text-sm font-medium">Spring Bloom</p>
+            </div>
+        </div>
+
+        <!-- photo 4 -->
+        <div class="row-span-2 bg-linear-to-br from-green-400 to-green-600 rounded-lg shadow-lg p-8 m-2 inline-block">
+            <div class="text-white text-center">
+                <div class="text-6xl mb-4">🌲</div>
+                <p class="text-sm font-medium">Forest Path</p>
+            </div>
+        </div>
+
+        <!-- photo 5 -->
+        <div class="bg-linear-to-br from-yellow-400 to-yellow-600 rounded-lg shadow-lg p-8 m-2 inline-block">
+            <div class="text-white text-center">
+                <div class="text-6xl mb-4">🌅</div>
+                <p class="text-sm font-medium">Golden Sunset</p>
+            </div>
+        </div>
+
+        <!-- photo 6 -->
+        <div class="row-span-2 bg-linear-to-br from-red-400 to-red-600 rounded-lg shadow-lg p-8 m-2 inline-block">
+            <div class="text-white text-center">
+                <div class="text-6xl mb-4">🏔️</div>
+                <p class="text-sm font-medium">Snowy Peaks</p>
+            </div>
+        </div>
+
+        <!-- photo 7 -->
+        <div class="bg-linear-to-br from-indigo-400 to-indigo-600 rounded-lg shadow-lg p-8 m-2 inline-block">
+            <div class="text-white text-center">
+                <div class="text-6xl mb-4">🌙</div>
+                <p class="text-sm font-medium">Night Sky</p>
+            </div>
+        </div>
+
+        <!-- photo 8 -->
+        <div class="col-span-2 bg-linear-to-br from-teal-400 to-teal-600 rounded-lg shadow-lg p-8 m-2 inline-block">
+            <div class="text-white text-center">
+                <div class="text-6xl mb-4">🏖️</div>
+                <p class="text-sm font-medium">Beach Paradise</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
