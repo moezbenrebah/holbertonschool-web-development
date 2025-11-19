@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Blog Layout</h1>
+        <p class="subtitle">Grid Templates & Layouts - Defining Structure</p>
+
+        <div class="blog-layout">
+            <aside class="sidebar">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Articles</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Design</a></li>
+                    <li><a href="#">Programming</a></li>
+                </ul>
+
+                <div class="ad-box">
+                    <p>Advertisement</p>
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <article>
+                    <h2>Understanding CSS Grid Layouts</h2>
+                    <p class="meta">By John Doe • Nov 19, 2025</p>
+                    <p>CSS Grid Layout is a two-dimensional layout system for the web. It lets you lay content out in rows and columns, and has many features that make building complex layouts straightforward.</p>
+                    <p>Unlike flexbox which is largely a one-dimensional system, Grid is optimized for two-dimensional layouts - those in which you want to align content in rows AND columns.</p>
+                    <p>The basic concept is simple: you define a container element as a grid with display: grid, set the column and row sizes with grid-template-columns and grid-template-rows, and then place its child elements into the grid with grid-column and grid-row.</p>
+                    <p>Grid is incredibly powerful and allows for layouts that were previously impossible or very difficult to achieve with older CSS techniques.</p>
+                </article>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

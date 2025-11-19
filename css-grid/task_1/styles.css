@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f3f4f6;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #1f2937;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.subtitle {
+    color: #6b7280;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.blog-layout {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 0;
+}
+
+.sidebar {
+    background: #f9fafb;
+    padding: 30px;
+    border-right: 1px solid #e5e7eb;
+}
+
+.sidebar h3 {
+    color: #1f2937;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+.sidebar h3:first-child {
+    margin-top: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 0.75rem;
+}
+
+.sidebar a {
+    color: #4b5563;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.sidebar a:hover {
+    color: #667eea;
+}
+
+.ad-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.main-content {
+    padding: 40px;
+}
+
+.main-content article h2 {
+    color: #1f2937;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.meta {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-content p {
+    color: #4b5563;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+}
