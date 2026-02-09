@@ -1,151 +1,164 @@
-const taskForm = document.querySelector('#task-form');
-const taskInput = document.querySelector('#task-input');
-const dropZones = document.querySelectorAll('.drop-zone');
+const taskForm = document.querySelector("#task-form");
+const taskInput = document.querySelector("#task-input");
+const dropZones = document.querySelectorAll(".drop-zone");
 
 let tasks = [];
 
 function init() {
-    renderAllColumns();
-    setupEventListeners();
+  renderAllColumns();
+  setupEventListeners();
 }
 
 function setupEventListeners() {
-    taskForm.addEventListener('submit', handleAddTask);
+  taskForm.addEventListener("submit", handleAddTask);
 
-    dropZones.forEach(zone => {
-        zone.addEventListener('dragover', handleDragOver);
-        zone.addEventListener('drop', handleDrop);
-        zone.addEventListener('dragleave', handleDragLeave);
-    });
+  dropZones.forEach((zone) => {
+    zone.addEventListener("dragover", handleDragOver);
+    zone.addEventListener("drop", handleDrop);
+    zone.addEventListener("dragleave", handleDragLeave);
+  });
 }
 
 function handleAddTask(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const text = taskInput.value.trim();
-    if (!text) return;
+  const text = taskInput.value.trim();
+  if (!text) return;
 
-    const task = {
-        id: Date.now(),
-        text: text,
-        column: 'todo',
-        createdAt: new Date().toISOString()
-    };
+  const task = {
+    id: Date.now(),
+    text: text,
+    column: "todo",
+    createdAt: new Date().toISOString(),
+  };
 
-    tasks.push(task);
-    renderAllColumns();
+  tasks.push(task);
+  renderAllColumns();
 
-    taskInput.value = '';
-    taskInput.focus();
+  taskInput.value = "";
+  taskInput.focus();
 }
 
 function deleteTask(id) {
-    tasks = tasks.filter(task => task.id !== id);
-    renderAllColumns();
+  tasks = tasks.filter((task) => task.id !== id);
+  renderAllColumns();
 }
 
 function handleDragStart(event) {
-    const taskCard = event.target;
-    const taskId = taskCard.dataset.taskId;
+  const taskCard = event.target;
+  const taskId = taskCard.dataset.taskId;
 
-    event.dataTransfer.effectAllowed = 'move';
-    event.dataTransfer.setData('text/plain', taskId);
+  event.dataTransfer.effectAllowed = "move";
+  event.dataTransfer.setData("text/plain", taskId);
 
-    taskCard.classList.add('dragging');
+  taskCard.classList.add("dragging");
 }
 
 function handleDragEnd(event) {
-    event.target.classList.remove('dragging');
+  event.target.classList.remove("dragging");
 }
 
 function handleDragOver(event) {
-    event.preventDefault();
-    event.dataTransfer.dropEffect = 'move';
+  event.preventDefault();
+  event.dataTransfer.dropEffect = "move";
 
-    const dropZone = event.currentTarget;
-    dropZone.classList.add('drag-over');
+  const dropZone = event.currentTarget;
+  dropZone.classList.add("drag-over");
 }
 
 function handleDragLeave(event) {
-    const dropZone = event.currentTarget;
-    dropZone.classList.remove('drag-over');
+  const dropZone = event.currentTarget;
+  dropZone.classList.remove("drag-over");
 }
 
 function handleDrop(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const dropZone = event.currentTarget;
-    dropZone.classList.remove('drag-over');
+  const dropZone = event.currentTarget;
+  dropZone.classList.remove("drag-over");
 
-    const taskId = parseInt(event.dataTransfer.getData('text/plain'));
-    const newColumn = dropZone.dataset.column;
+  const taskId = parseInt(event.dataTransfer.getData("text/plain"));
+  const newColumn = dropZone.dataset.column;
 
-    const task = tasks.find(t => t.id === taskId);
-    if (task) {
-        task.column = newColumn;
-        renderAllColumns();
-    }
+  const task = tasks.find((t) => t.id === taskId);
+  if (task) {
+    task.column = newColumn;
+    renderAllColumns();
+  }
 }
 
 function renderAllColumns() {
-    const columns = ['todo', 'in-progress', 'done'];
+  const columns = ["todo", "in-progress", "done"];
 
-    columns.forEach(columnName => {
-        const dropZone = document.querySelector(`.drop-zone[data-column="${columnName}"]`);
-        const columnTasks = tasks.filter(task => task.column === columnName);
+  columns.forEach((columnName) => {
+    const dropZone = document.querySelector(
+      `.drop-zone[data-column="${columnName}"]`,
+    );
+    const columnTasks = tasks.filter((task) => task.column === columnName);
 
-        dropZone.innerHTML = '';
+    dropZone.innerHTML = "";
 
-        columnTasks.forEach(task => {
-            const taskCard = createTaskCard(task);
-            dropZone.appendChild(taskCard);
-        });
-
-        updateColumnCount(columnName, columnTasks.length);
+    columnTasks.forEach((task) => {
+      const taskCard = createTaskCard(task);
+      dropZone.appendChild(taskCard);
     });
+
+    updateColumnCount(columnName, columnTasks.length);
+  });
 }
 
 function createTaskCard(task) {
-    const card = document.createElement('div');
-    card.className = 'task-card';
-    card.draggable = true;
-    card.dataset.taskId = task.id;
+  const card = document.createElement("div");
+  card.className = "task-card";
+  card.draggable = true;
+  card.dataset.taskId = task.id;
 
-    const date = new Date(task.createdAt).toLocaleDateString();
+  const date = new Date(task.createdAt).toLocaleDateString();
 
-    card.innerHTML = `
-        <div class="task-content">
-            <div class="task-info">
-                <div class="task-text">${escapeHtml(task.text)}</div>
-                <div class="task-date">${date}</div>
-            </div>
-            <button class="btn-delete" data-id="${task.id}">×</button>
-        </div>
-    `;
+  // Create structure using createElement (secure, no need for escapeHtml)
+  const content = document.createElement("div");
+  content.className = "task-content";
 
-    card.addEventListener('dragstart', handleDragStart);
-    card.addEventListener('dragend', handleDragEnd);
+  const info = document.createElement("div");
+  info.className = "task-info";
 
-    const deleteBtn = card.querySelector('.btn-delete');
-    deleteBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        deleteTask(task.id);
-    });
+  const textDiv = document.createElement("div");
+  textDiv.className = "task-text";
+  textDiv.textContent = task.text; // Safe! textContent auto-escapes HTML
 
-    return card;
+  const dateDiv = document.createElement("div");
+  dateDiv.className = "task-date";
+  dateDiv.textContent = date;
+
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "btn-delete";
+  deleteBtn.dataset.id = task.id;
+  deleteBtn.textContent = "×";
+
+  // Build hierarchy
+  info.appendChild(textDiv);
+  info.appendChild(dateDiv);
+  content.appendChild(info);
+  content.appendChild(deleteBtn);
+  card.appendChild(content);
+
+  // Event listeners
+  card.addEventListener("dragstart", handleDragStart);
+  card.addEventListener("dragend", handleDragEnd);
+
+  deleteBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    deleteTask(task.id);
+  });
+
+  return card;
 }
 
 function updateColumnCount(columnName, count) {
-    const countSpan = document.querySelector(`#${columnName}-count`);
-    if (countSpan) {
-        countSpan.textContent = count;
-    }
-}
-
-function escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+  const countSpan = document.querySelector(`#${columnName}-count`);
+  if (countSpan) {
+    countSpan.textContent = count;
+  }
 }
 
 init();
