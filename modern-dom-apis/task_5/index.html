@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern DOM APIs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Shopping Basket</h1>
+
+        <div class="product-list">
+            <div class="product-item">
+                <div class="product-info">
+                    <h3>Wireless Headphones</h3>
+                    <p class="price">$79.99</p>
+                </div>
+                <div class="product-actions">
+                    <button class="btn btn-primary btn-details">Details</button>
+                    <button class="btn btn-danger btn-delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <dialog id="dialog-details" class="dialog">
+        <h2>Product Details</h2>
+        <div class="details-content">
+            <p><strong>Name:</strong> Wireless Headphones</p>
+            <p><strong>Price:</strong> $79.99</p>
+            <p><strong>Description:</strong> High-quality wireless headphones with noise cancellation and 30-hour battery life.</p>
+            <p><strong>Color:</strong> Black</p>
+            <p><strong>Brand:</strong> AudioPro</p>
+        </div>
+        <div class="dialog-actions">
+            <button id="btn-close-details" class="btn btn-primary">Close</button>
+        </div>
+    </dialog>
+
+    <dialog id="dialog-delete" class="dialog">
+        <h2>Confirm Deletion</h2>
+        <p>Are you sure you want to remove this product from your basket?</p>
+        <div class="dialog-actions">
+            <button id="btn-cancel-delete" class="btn btn-secondary">Cancel</button>
+            <button id="btn-confirm-delete" class="btn btn-danger">Delete</button>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>

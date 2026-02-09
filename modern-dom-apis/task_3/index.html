@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern DOM APIs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Kanban Board</h1>
+            <p class="subtitle">Drag tasks between columns</p>
+        </header>
+
+        <main>
+            <form id="task-form" class="task-form">
+                <input
+                    type="text"
+                    id="task-input"
+                    placeholder="Add new task..."
+                    required
+                >
+                <button type="submit" class="btn-add">Add Task</button>
+            </form>
+
+            <div class="kanban-board">
+                <div class="column" data-column="todo">
+                    <div class="column-header">
+                        <h2>📝 To Do</h2>
+                        <span class="count" id="todo-count">0</span>
+                    </div>
+                    <div class="drop-zone" data-column="todo">
+                        
+                    </div>
+                </div>
+
+                <div class="column" data-column="in-progress">
+                    <div class="column-header">
+                        <h2>🚧 In Progress</h2>
+                        <span class="count" id="in-progress-count">0</span>
+                    </div>
+                    <div class="drop-zone" data-column="in-progress">
+                        
+                    </div>
+                </div>
+
+                <div class="column" data-column="done">
+                    <div class="column-header">
+                        <h2>✅ Done</h2>
+                        <span class="count" id="done-count">0</span>
+                    </div>
+                    <div class="drop-zone" data-column="done">
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

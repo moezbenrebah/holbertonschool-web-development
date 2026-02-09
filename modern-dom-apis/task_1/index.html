@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern DOM APIs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Color Picker</h1>
+            <p class="subtitle">Click any color to select it</p>
+        </header>
+
+        <main>
+            <div class="selected-color-display">
+                <div id="selected-color" class="color-preview"></div>
+                <div class="color-info">
+                    <p>Selected Color:</p>
+                    <p id="color-name" class="color-name">None</p>
+                    <p id="color-hex" class="color-hex">#000000</p>
+                </div>
+            </div>
+
+            <div id="color-grid" class="color-grid">
+            </div>
+
+            <div class="event-log">
+                <h3>Event Log (last 5 events):</h3>
+                <ul id="event-list" class="event-list"></ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
