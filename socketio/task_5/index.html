@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.IO</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Live Task Board</h1>
+            <div class="header-actions">
+                <div class="notification-container">
+                    <button id="notification-bell" class="notification-bell" title="Notifications">
+                        <span style="font-size: 18px; color: black;"><i class="fa-solid fa-bell"></i></span>
+                        <span id="notification-badge" class="notification-badge hidden">0</span>
+                    </button>
+                    <div id="notification-dropdown" class="notification-dropdown hidden">
+                        <div class="notification-header">
+                            <h3>Notifications</h3>
+                        </div>
+                        <div id="notification-list" class="notification-list">
+                            <div class="no-notifications">No notifications</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status">
+                    <span class="status-indicator" id="status-indicator"></span>
+                    <span id="status-text">Disconnected</span>
+                </div>
+            </div>
+        </header>
+            <div id="username-form-container">
+                <h2>Join the Board</h2>
+                <form id="username-form">
+                    <input
+                        type="text"
+                        id="username-input"
+                        placeholder="Enter your username"
+                        required
+                        maxlength="20"
+                    />
+                    <button type="submit">Join</button>
+                </form>
+                <div id="error-message" class="error-message"></div>
+            </div>
+            <div id="main-content" style="display: none;">
+                <div class="sidebar">
+                    <div class="welcome">
+                        <h2>Welcome, <span id="current-username"></span>!</h2>
+                    </div>
+
+                    <div class="online-users">
+                        <h3>Online Users (<span id="user-count">0</span>)</h3>
+                        <ul id="user-list"></ul>
+                    </div>
+                    <div class="board-selector">
+                        <h3>Select Board</h3>
+                        <select id="board-select">
+                            <option value="">Choose a board...</option>
+                            <option value="dev">Development</option>
+                            <option value="mkt">Marketing</option>
+                            <option value="des">Design</option>
+                        </select>
+                        <div id="current-board-info" class="current-board-info"></div>
+                    </div>
+                </div>
+                <div class="board-section">
+                    <div id="no-board-selected" class="no-board">
+                        <p>Please select a board to start</p>
+                    </div>
+                    <div id="board-content" style="display: none;">
+                        <h2><span id="current-board-name"></span> Board</h2>
+                        <div class="task-form-container">
+                            <h3>Create New Task</h3>
+                            <form id="task-form">
+                                <input
+                                    type="text"
+                                    id="task-title-input"
+                                    placeholder="Enter task title"
+                                    required
+                                    maxlength="100"
+                                />
+                                <button type="submit">Create Task</button>
+                            </form>
+                            <div id="task-error" class="error-message"></div>
+                        </div>
+                        <div class="task-list-container">
+                            <h3>Tasks (<span id="task-count">0</span>)</h3>
+                            <div id="task-list" class="task-list"></div>
+                            <div id="no-tasks" class="no-tasks">No tasks yet. Create one above!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div id="assign-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Assign Task</h3>
+                    <button id="close-modal" class="close-modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Assign "<span id="modal-task-title"></span>" to:</p>
+                    <div id="user-select-list" class="user-select-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

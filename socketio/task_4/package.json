@@ -1,0 +1,19 @@
+{
+  "name": "task-3-realtime-task-updates",
+  "version": "1.0.0",
+  "description": "Task 3: Real-Time Task Updates",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "vite --port=5500 --open",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.6.1"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "vite": "^5.0.0"
+  }
+}
