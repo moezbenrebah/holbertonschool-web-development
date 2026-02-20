@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form handling & validation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- header -->
+        <header class="checkout-header">
+            <h1>Checkout</h1>
+            <div class="step-indicator">
+                <div class="step active" data-step="0">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Cart</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="1">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Shipping</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="2">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Payment</div>
+                </div>
+                <div class="step-line"></div>
+                <div class="step" data-step="3">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Confirmation</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- step 0: cart review -->
+        <section class="checkout-step active" id="step-cart" data-step="0">
+            <h2>Your Cart</h2>
+
+            <div class="cart-items" id="cart-items">
+                <!-- cart items will be rendered here -->
+            </div>
+
+            <div class="cart-empty-message" id="cart-empty-message" style="display: none;">
+                <p>Your cart is empty</p>
+            </div>
+
+            <div class="promo-code-section">
+                <h3>Have a promo code?</h3>
+                <div class="promo-code-input-group">
+                    <input type="text" id="promo-code-input" placeholder="Enter promo code" class="form-input">
+                    <button type="button" id="apply-promo-btn" class="btn btn-secondary">Apply</button>
+                </div>
+                <div class="promo-code-message" id="promo-code-message"></div>
+                <div class="promo-code-loading" id="promo-code-loading" style="display: none;">
+                    <span>Validating...</span>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="summary-row" id="discount-row" style="display: none;">
+                    <span>Discount:</span>
+                    <span id="cart-discount">-$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (10%):</span>
+                    <span id="cart-tax">$0.00</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>Total:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+            </div>
+
+            <div class="step-actions">
+                <button type="button" class="btn btn-primary" id="cart-next-btn">Continue to Shipping</button>
+            </div>
+        </section>
+
+        <!-- step 1: Shipping Information -->
+        <section class="checkout-step" id="step-shipping" data-step="1">
+            <h2>Shipping Information</h2>
+
+            <form id="shipping-form" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="shipping-first-name">First Name *</label>
+                        <input type="text" id="shipping-first-name" name="firstName" class="form-input" required>
+                        <div class="error-message" id="shipping-first-name-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="shipping-last-name">Last Name *</label>
+                        <input type="text" id="shipping-last-name" name="lastName" class="form-input" required>
+                        <div class="error-message" id="shipping-last-name-error"></div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="shipping-email">Email *</label>
+                    <input type="email" id="shipping-email" name="email" class="form-input" required>
+                    <div class="error-message" id="shipping-email-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="shipping-phone">Phone Number *</label>
+                    <input type="tel" id="shipping-phone" name="phone" class="form-input" required>
+                    <div class="error-message" id="shipping-phone-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="shipping-address">Street Address *</label>
+                    <input type="text" id="shipping-address" name="address" class="form-input" required>
+                    <div class="error-message" id="shipping-address-error"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="shipping-city">City *</label>
+                        <input type="text" id="shipping-city" name="city" class="form-input" required>
+                        <div class="error-message" id="shipping-city-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="shipping-state">State *</label>
+                        <input type="text" id="shipping-state" name="state" class="form-input" required>
+                        <div class="error-message" id="shipping-state-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="shipping-zip">ZIP Code *</label>
+                        <input type="text" id="shipping-zip" name="zip" class="form-input" required>
+                        <div class="error-message" id="shipping-zip-error"></div>
+                    </div>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="btn btn-secondary" id="shipping-back-btn">Back to Cart</button>
+                    <button type="submit" class="btn btn-primary" id="shipping-next-btn">Continue to Payment</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- step 2: payment Information -->
+        <section class="checkout-step" id="step-payment" data-step="2">
+            <h2>Payment Information</h2>
+
+            <form id="payment-form" novalidate>
+                <div class="form-group">
+                    <label for="card-number">Card Number *</label>
+                    <input type="text" id="card-number" name="cardNumber" class="form-input" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                    <div class="error-message" id="card-number-error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="card-name">Name on Card *</label>
+                    <input type="text" id="card-name" name="cardName" class="form-input" required>
+                    <div class="error-message" id="card-name-error"></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="card-expiry">Expiry Date (MM/YY) *</label>
+                        <input type="text" id="card-expiry" name="cardExpiry" class="form-input" placeholder="MM/YY" maxlength="5" required>
+                        <div class="error-message" id="card-expiry-error"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-cvv">CVV *</label>
+                        <input type="text" id="card-cvv" name="cardCvv" class="form-input" placeholder="123" maxlength="4" required>
+                        <div class="error-message" id="card-cvv-error"></div>
+                    </div>
+                </div>
+
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="payment-subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row" id="payment-discount-row" style="display: none;">
+                        <span>Discount:</span>
+                        <span id="payment-discount">-$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax:</span>
+                        <span id="payment-tax">$0.00</span>
+                    </div>
+                    <div class="summary-row summary-total">
+                        <span>Total:</span>
+                        <span id="payment-total">$0.00</span>
+                    </div>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="btn btn-secondary" id="payment-back-btn">Back to Shipping</button>
+                    <button type="submit" class="btn btn-primary" id="payment-submit-btn">Place Order</button>
+                </div>
+            </form>
+
+            <div class="submission-loading" id="submission-loading" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>Processing your order...</p>
+            </div>
+        </section>
+
+        <!-- step 3: confirmation -->
+        <section class="checkout-step" id="step-confirmation" data-step="3">
+            <div class="confirmation-content">
+                <div class="confirmation-icon">
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="40" fill="#198754"/>
+                        <path d="M25 40L35 50L55 30" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2>Order Confirmed!</h2>
+                <p class="confirmation-message">Thank you for your purchase. Your order has been successfully placed.</p>
+
+                <div class="order-details">
+                    <h3>Order Details</h3>
+                    <div class="detail-row">
+                        <span>Order Number:</span>
+                        <span id="order-number">---</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Date:</span>
+                        <span id="order-date">---</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Total Amount:</span>
+                        <span id="confirmation-total">$0.00</span>
+                    </div>
+                </div>
+
+                <div class="confirmation-actions">
+                    <button type="button" class="btn btn-primary" id="reset-checkout-btn">Start New Order</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
