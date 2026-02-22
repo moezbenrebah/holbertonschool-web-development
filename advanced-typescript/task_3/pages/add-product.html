@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Typescript</title>
+  <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <h1 class="header__title">E-Commerce Store</h1>
+      <nav class="header__nav">
+        <a href="index.html" class="nav__link">Products</a>
+        <a href="add-product.html" class="nav__link nav__link--active">Add Product</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <h2 class="page-title" id="page-title">Add New Product</h2>
+        <a href="index.html" class="btn btn--secondary">Back to Products</a>
+      </div>
+
+      <!-- Product Form -->
+      <div class="form-container">
+        <form id="product-form" class="product-form">
+
+          <!-- Product Name -->
+          <div class="form-group">
+            <label for="name" class="form-label">
+              Product Name <span class="required">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-input"
+              placeholder="e.g., Wireless Mouse"
+              required
+            >
+            <div class="form-error" id="name-error"></div>
+          </div>
+
+          <!-- Price -->
+          <div class="form-group">
+            <label for="price" class="form-label">
+              Price (USD) <span class="required">*</span>
+            </label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              class="form-input"
+              placeholder="e.g., 29.99"
+              step="0.01"
+              min="0"
+              required
+            >
+            <div class="form-error" id="price-error"></div>
+          </div>
+
+          <!-- Category -->
+          <div class="form-group">
+            <label for="category" class="form-label">
+              Category <span class="required">*</span>
+            </label>
+            <select id="category" name="category" class="form-select" required>
+              <option value="">Select a category</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Books">Books</option>
+              <option value="Home & Garden">Home & Garden</option>
+              <option value="Sports">Sports</option>
+              <option value="Toys">Toys</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="form-error" id="category-error"></div>
+          </div>
+
+          <!-- Description -->
+          <div class="form-group">
+            <label for="description" class="form-label">
+              Description
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              class="form-textarea"
+              placeholder="Product description (optional)"
+              rows="4"
+            ></textarea>
+            <div class="form-error" id="description-error"></div>
+          </div>
+
+          <!-- In Stock -->
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input
+                type="checkbox"
+                id="inStock"
+                name="inStock"
+                class="form-checkbox"
+                checked
+              >
+              <span>In Stock</span>
+            </label>
+          </div>
+
+          <!-- Tags -->
+          <div class="form-group">
+            <label for="tags" class="form-label">
+              Tags
+            </label>
+            <input
+              type="text"
+              id="tags"
+              name="tags"
+              class="form-input"
+              placeholder="e.g., wireless, bluetooth, ergonomic (comma-separated)"
+            >
+            <small class="form-help">Separate tags with commas</small>
+            <div class="form-error" id="tags-error"></div>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary" id="submit-btn">
+              <span id="submit-text">Add Product</span>
+            </button>
+            <a href="index.html" class="btn btn--secondary">Cancel</a>
+          </div>
+
+          <!-- General Form Error -->
+          <div id="form-error" class="form-error-general" hidden></div>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Holberton School- Advanced TypeScript Project</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="/src/product-form.ts"></script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+{
+  "validProducts": [
+    {
+      "name": "Wireless Bluetooth Mouse",
+      "price": 29.99,
+      "category": "Electronics",
+      "description": "Ergonomic wireless mouse with Bluetooth connectivity",
+      "inStock": true,
+      "tags": [
+        "wireless",
+        "bluetooth",
+        "ergonomic"
+      ],
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "USB-C Hub 7-in-1",
+      "price": 49.99,
+      "category": "Electronics",
+      "description": "Multi-port USB-C hub with HDMI, USB 3.0, and card readers",
+      "inStock": true,
+      "tags": [
+        "usb-c",
+        "hub",
+        "adapter"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Mechanical Keyboard RGB",
+      "price": 89.99,
+      "category": "Electronics",
+      "description": "Mechanical gaming keyboard with RGB backlighting",
+      "inStock": false,
+      "tags": [
+        "keyboard",
+        "mechanical",
+        "rgb",
+        "gaming"
+      ]
+    }
+  ],
+  "invalidProducts": [
+    {
+      "id": 101,
+      "name": "Product with String Price",
+      "price": "49.99",
+      "category": "Electronics",
+      "description": "This product has a string price instead of number",
+      "inStock": true,
+      "tags": [
+        "error",
+        "validation"
+      ]
+    },
+    {
+      "id": 102,
+      "name": "Product with String Boolean",
+      "price": 19.99,
+      "category": "Clothing",
+      "description": "This product has inStock as string",
+      "inStock": "yes",
+      "tags": [
+        "error"
+      ]
+    },
+    {
+      "id": 103,
+      "price": 99.99,
+      "category": "Sports",
+      "description": "This product is missing the name field",
+      "inStock": false
+    },
+    {
+      "id": 104,
+      "name": "Product with Number Category",
+      "price": 15,
+      "category": 123,
+      "description": "This product has category as number",
+      "inStock": true
+    },
+    {
+      "id": 105,
+      "name": "Product with Negative Price",
+      "price": -50,
+      "category": "Books",
+      "description": "This product has a negative price",
+      "inStock": true
+    },
+    {
+      "id": 106,
+      "name": "Product with String Tags",
+      "price": 29.99,
+      "category": "Toys",
+      "description": "This product has tags as string instead of array",
+      "inStock": true,
+      "tags": "toy, kids, fun"
+    }
+  ]
+}
