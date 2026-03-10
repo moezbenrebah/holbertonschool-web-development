@@ -312,11 +312,6 @@
   color: var(--background-color);
 }
 
-.section .card-body h3 {
-  font-size: 16px;
-  line-height: 20px;
-}
-
 .section .card-text {
   font-size: 14px;
   line-height: 24px;
@@ -651,9 +646,8 @@
 
 /* FAQ SECTION  */
 
-.faq .section-header h1,
 .faq .section-header h2 {
-  margin-top: 120px;
+  margin-top: 74px;
   font-size: 60px;
   font-weight: 300;
   color: var(--background-color);
