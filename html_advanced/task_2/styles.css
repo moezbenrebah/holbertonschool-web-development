@@ -43,13 +43,11 @@
 /*** Header ***/
 
 .header {
-  background-image: url("images/pic_1.jpg");
-  background-color: var(--background-color);
-  max-width: 100%;
-  height: auto;
-  background-position-x: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .header .navbar-line1 {
@@ -107,7 +105,13 @@
 }
 
 .hero {
-  margin-top: 155px;
+  background-image: url("images/pic_1.jpg");
+  background-color: var(--background-color);
+  background-position-x: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 155px;
+  overflow-x: hidden;
 }
 .hero h1 {
   font-size: 120px;
