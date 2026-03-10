@@ -43,13 +43,11 @@
 /*** Header ***/
 
 .header {
-  background-image: url("images/pic_1.jpg");
-  background-color: var(--background-color);
-  max-width: 100%;
-  height: auto;
-  background-position-x: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 .header .navbar-line1 {
@@ -107,7 +105,13 @@
 }
 
 .hero {
-  margin-top: 155px;
+  background-image: url("images/pic_1.jpg");
+  background-color: var(--background-color);
+  background-position-x: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 155px;
+  overflow-x: hidden;
 }
 .hero h1 {
   font-size: 120px;
@@ -306,6 +310,11 @@
   font-size: 16px;
   line-height: 20px;
   color: var(--background-color);
+}
+
+.section .card-body h3 {
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .section .card-text {
@@ -642,8 +651,9 @@
 
 /* FAQ SECTION  */
 
+.faq .section-header h1,
 .faq .section-header h2 {
-  margin-top: 74px;
+  margin-top: 120px;
   font-size: 60px;
   font-weight: 300;
   color: var(--background-color);
