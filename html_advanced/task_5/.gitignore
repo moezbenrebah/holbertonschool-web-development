@@ -1,0 +1,10 @@
+*
+!.gitignore
+!README.md
+!*.html
+!*.css
+!fonts/
+!fonts/**
+!images/
+!images/**
+
